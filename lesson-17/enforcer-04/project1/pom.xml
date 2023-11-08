@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+      <groupId>com.acme</groupId>
+      <artifactId>enforcer-04</artifactId>
+      <version>0.0.0-SNAPSHOT</version>
+    </parent>
+    
+    <artifactId>project1</artifactId>
+
+    <build>
+        <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-enforcer-plugin</artifactId>
+              <configuration>
+                  <rules>
+                      <requireJavaVersion>
+                          <version>11</version>
+                      </requireJavaVersion>
+                  </rules>
+              </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

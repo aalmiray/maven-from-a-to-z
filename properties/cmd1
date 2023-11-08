@@ -1,0 +1,1 @@
+mvn compile org.codehaus.mojo:exec-maven-plugin:1.6.0:java -Dexec.mainClass=com.acme.Sample
