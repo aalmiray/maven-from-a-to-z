@@ -1,4 +1,4 @@
 # Lesson 14
 
-Reactor + plugin inheritance
+## Reactor + plugin inheritance
  - plugin management

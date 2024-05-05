@@ -1,6 +1,6 @@
 # Lesson 16
 
-Dependency mediation
+## Dependency mediation
  - direct dependencies
  - transitive dependencies
  - dependency management

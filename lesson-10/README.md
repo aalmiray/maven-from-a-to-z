@@ -1,3 +1,3 @@
 # Lesson 10
 
-Aggregating POM
+## Aggregating POM

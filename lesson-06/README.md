@@ -1,5 +1,5 @@
 # Lesson 06
 
-Plugin
+## Plugins II
  - executions
  - bindings

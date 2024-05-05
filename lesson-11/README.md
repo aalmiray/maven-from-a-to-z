@@ -1,3 +1,3 @@
 # Lesson 11
 
-Aggregating + parent POM
+## Aggregating + parent POM

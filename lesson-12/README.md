@@ -1,4 +1,4 @@
 # Lesson 11
 
-Plugin inheritance
-Reactor
+## Plugin inheritance
+## Reactor
