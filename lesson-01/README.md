@@ -1,8 +1,10 @@
 # Lesson 1
 
 ## POM basics
+
 Maven uses a Project Object Model (POM) to manage a project.
-Typically, project models are written in XML. A POM description is NOT restricted to XML. XML was the first format used, but other formats can be used to describe the Project Object Model.
+Typically, project models are written in XML. A POM description is NOT restricted to XML. XML was the first format used,
+but other formats can be used to describe the Project Object Model.
 
 The minimum requirement for a POM are the following:
 
@@ -11,6 +13,43 @@ The minimum requirement for a POM are the following:
 - ``groupId`` - the id of the project's group.
 - ``artifactId`` - the id of the artifact (project)
 - ``version`` - the version of the artifact under the specified group
+
+## Effective POM
+
+``mvn help:effective-pom -Dverbose``
+![Effective POM](../assets/images/MasteringMavenAZ_POM.png)
+
+### Maven Super POM
+
+``` xml
+      <plugins>
+        <plugin>
+          <artifactId>maven-antrun-plugin</artifactId>
+          <version>1.3</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.2-beta-5</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.0</version>
+        </plugin>
+      </plugins>
+```
+
+https://maven.apache.org/ref/3.0.4/maven-model-builder/super-pom.html
+
+### Parent POM
+
+For example the **Apache Software Foundation Parent POM** version 32 was released on 2024-04-14
+https://maven.apache.org/pom/asf/
+
+
 
 ## Maven Model
 
@@ -21,102 +60,104 @@ https://maven.apache.org/xsd/maven-v3_0_0.xsd for Maven 1.1.
 https://maven.apache.org/xsd/maven-4.0.0.xsd for Maven 2.0.
 
 ```xml showLineNumbers 
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
-  child.project.url.inherit.append.path=.. >
-  <modelVersion/>
- 
-  <parent>
-    <groupId/>
-    <artifactId/>
-    <version/>
-    <relativePath/>
-  </parent>
- 
-  <groupId/>
-  <artifactId/>
-  <version/>
-  <packaging/>
- 
-  <name/>
-  <description/>
-  <url/>
-  <inceptionYear/>
-  <organization>
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"
+         child.project.url.inherit.append.path=.. >
+<modelVersion/>
+
+<parent>
+<groupId/>
+<artifactId/>
+<version/>
+<relativePath/>
+</parent>
+
+<groupId/>
+<artifactId/>
+<version/>
+<packaging/>
+
+<name/>
+<description/>
+<url/>
+<inceptionYear/>
+<organization>
+<name/>
+<url/>
+</organization>
+<licenses>
+<license>
     <name/>
     <url/>
-  </organization>
-  <licenses>
-    <license>
-      <name/>
-      <url/>
-      <distribution/>
-      <comments/>
-    </license>
-  </licenses>
- 
-  <developers>
-    <developer>
-      <id/>
-      <name/>
-      <email/>
-      <url/>
-      <organization/>
-      <organizationUrl/>
-      <roles/>
-      <timezone/>
-      <properties>
+    <distribution/>
+    <comments/>
+</license>
+</licenses>
+
+<developers>
+<developer>
+    <id/>
+    <name/>
+    <email/>
+    <url/>
+    <organization/>
+    <organizationUrl/>
+    <roles/>
+    <timezone/>
+    <properties>
         <key>value</key>
-      </properties>
-    </developer>
-  </developers>
-  <contributors>
-    <contributor>
-      <name/>
-      <email/>
-      <url/>
-      <organization/>
-      <organizationUrl/>
-      <roles/>
-      <timezone/>
-      <properties>
+    </properties>
+</developer>
+</developers>
+<contributors>
+<contributor>
+    <name/>
+    <email/>
+    <url/>
+    <organization/>
+    <organizationUrl/>
+    <roles/>
+    <timezone/>
+    <properties>
         <key>value</key>
-      </properties>
-    </contributor>
-  </contributors>
- 
-  <mailingLists>
-    <mailingList>
-      <name/>
-      <subscribe/>
-      <unsubscribe/>
-      <post/>
-      <archive/>
-      <otherArchives/>
-    </mailingList>
-  </mailingLists>
- 
-  <prerequisites>
-    <maven/>
-  </prerequisites>
- 
-  <modules/>
- 
-  <scm child.scm.connection.inherit.append.path=.. child.scm.developerConnection.inherit.append.path=.. child.scm.url.inherit.append.path=.. >
-    <connection/>
-    <developerConnection/>
-    <tag/>
-    <url/>
-  </scm>
-  <issueManagement>
-    <system/>
-    <url/>
-  </issueManagement>
-  <ciManagement>
-    <system/>
-    <url/>
-    <notifiers>
-      <notifier>
+    </properties>
+</contributor>
+</contributors>
+
+<mailingLists>
+<mailingList>
+    <name/>
+    <subscribe/>
+    <unsubscribe/>
+    <post/>
+    <archive/>
+    <otherArchives/>
+</mailingList>
+</mailingLists>
+
+<prerequisites>
+<maven/>
+</prerequisites>
+
+<modules/>
+
+<scm
+child.scm.connection.inherit.append.path=.. child.scm.developerConnection.inherit.append.path=.. child.scm.url.inherit.append.path=.. >
+<connection/>
+<developerConnection/>
+<tag/>
+<url/>
+        </scm>
+<issueManagement>
+<system/>
+<url/>
+</issueManagement>
+<ciManagement>
+<system/>
+<url/>
+<notifiers>
+    <notifier>
         <type/>
         <sendOnError/>
         <sendOnFailure/>
@@ -124,69 +165,69 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd for Maven 2.0.
         <sendOnWarning/>
         <address/>
         <configuration>
-          <key>value</key>
+            <key>value</key>
         </configuration>
-      </notifier>
-    </notifiers>
-  </ciManagement>
- 
-  <distributionManagement>
-    <repository>
-      <uniqueVersion/>
-      <releases>
+    </notifier>
+</notifiers>
+</ciManagement>
+
+<distributionManagement>
+<repository>
+    <uniqueVersion/>
+    <releases>
         <enabled/>
         <updatePolicy/>
         <checksumPolicy/>
-      </releases>
-      <snapshots>
+    </releases>
+    <snapshots>
         <enabled/>
         <updatePolicy/>
         <checksumPolicy/>
-      </snapshots>
-      <id/>
-      <name/>
-      <url/>
-      <layout/>
-    </repository>
-    <snapshotRepository>
-      <uniqueVersion/>
-      <releases>
+    </snapshots>
+    <id/>
+    <name/>
+    <url/>
+    <layout/>
+</repository>
+<snapshotRepository>
+    <uniqueVersion/>
+    <releases>
         <enabled/>
         <updatePolicy/>
         <checksumPolicy/>
-      </releases>
-      <snapshots>
+    </releases>
+    <snapshots>
         <enabled/>
         <updatePolicy/>
         <checksumPolicy/>
-      </snapshots>
-      <id/>
-      <name/>
-      <url/>
-      <layout/>
-    </snapshotRepository>
-    <site child.site.url.inherit.append.path=.. >
-      <id/>
-      <name/>
-      <url/>
-    </site>
-    <downloadUrl/>
-    <relocation>
-      <groupId/>
-      <artifactId/>
-      <version/>
-      <message/>
-    </relocation>
-    <status/>
-  </distributionManagement>
- 
-  <properties>
-    <key>value</key>
-  </properties>
- 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
+    </snapshots>
+    <id/>
+    <name/>
+    <url/>
+    <layout/>
+</snapshotRepository>
+<site child.site.url.inherit.append.path=.. >
+<id/>
+<name/>
+<url/>
+</site>
+<downloadUrl/>
+<relocation>
+<groupId/>
+<artifactId/>
+<version/>
+<message/>
+</relocation>
+<status/>
+        </distributionManagement>
+
+<properties>
+<key>value</key>
+</properties>
+
+<dependencyManagement>
+<dependencies>
+    <dependency>
         <groupId/>
         <artifactId/>
         <version/>
@@ -195,310 +236,163 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd for Maven 2.0.
         <scope/>
         <systemPath/>
         <exclusions>
-          <exclusion>
-            <groupId/>
-            <artifactId/>
-          </exclusion>
-        </exclusions>
-        <optional/>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  <dependencies>
-    <dependency>
-      <groupId/>
-      <artifactId/>
-      <version/>
-      <type/>
-      <classifier/>
-      <scope/>
-      <systemPath/>
-      <exclusions>
-        <exclusion>
-          <groupId/>
-          <artifactId/>
-        </exclusion>
-      </exclusions>
-      <optional/>
-    </dependency>
-  </dependencies>
- 
-  <repositories>
-    <repository>
-      <releases>
-        <enabled/>
-        <updatePolicy/>
-        <checksumPolicy/>
-      </releases>
-      <snapshots>
-        <enabled/>
-        <updatePolicy/>
-        <checksumPolicy/>
-      </snapshots>
-      <id/>
-      <name/>
-      <url/>
-      <layout/>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <releases>
-        <enabled/>
-        <updatePolicy/>
-        <checksumPolicy/>
-      </releases>
-      <snapshots>
-        <enabled/>
-        <updatePolicy/>
-        <checksumPolicy/>
-      </snapshots>
-      <id/>
-      <name/>
-      <url/>
-      <layout/>
-    </pluginRepository>
-  </pluginRepositories>
- 
-  <build>
-    <sourceDirectory/>
-    <scriptSourceDirectory/>
-    <testSourceDirectory/>
-    <outputDirectory/>
-    <testOutputDirectory/>
-    <extensions>
-      <extension>
-        <groupId/>
-        <artifactId/>
-        <version/>
-      </extension>
-    </extensions>
-    <defaultGoal/>
-    <resources>
-      <resource>
-        <targetPath/>
-        <filtering/>
-        <directory/>
-        <includes/>
-        <excludes/>
-      </resource>
-    </resources>
-    <testResources>
-      <testResource>
-        <targetPath/>
-        <filtering/>
-        <directory/>
-        <includes/>
-        <excludes/>
-      </testResource>
-    </testResources>
-    <directory/>
-    <finalName/>
-    <filters/>
-    <pluginManagement>
-      <plugins>
-        <plugin>
-          <groupId/>
-          <artifactId/>
-          <version/>
-          <extensions/>
-          <executions>
-            <execution>
-              <id/>
-              <phase/>
-              <goals/>
-              <inherited/>
-              <configuration/>
-            </execution>
-          </executions>
-          <dependencies>
-            <dependency>
-              <groupId/>
-              <artifactId/>
-              <version/>
-              <type/>
-              <classifier/>
-              <scope/>
-              <systemPath/>
-              <exclusions>
-                <exclusion>
-                  <groupId/>
-                  <artifactId/>
-                </exclusion>
-              </exclusions>
-              <optional/>
-            </dependency>
-          </dependencies>
-          <goals/>
-          <inherited/>
-          <configuration/>
-        </plugin>
-      </plugins>
-    </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId/>
-        <artifactId/>
-        <version/>
-        <extensions/>
-        <executions>
-          <execution>
-            <id/>
-            <phase/>
-            <goals/>
-            <inherited/>
-            <configuration/>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId/>
-            <artifactId/>
-            <version/>
-            <type/>
-            <classifier/>
-            <scope/>
-            <systemPath/>
-            <exclusions>
-              <exclusion>
+            <exclusion>
                 <groupId/>
                 <artifactId/>
-              </exclusion>
-            </exclusions>
-            <optional/>
-          </dependency>
-        </dependencies>
-        <goals/>
-        <inherited/>
-        <configuration/>
-      </plugin>
-    </plugins>
-  </build>
- 
-  <reports/>
-  <reporting>
-    <excludeDefaults/>
-    <outputDirectory/>
-    <plugins>
-      <plugin>
+            </exclusion>
+        </exclusions>
+        <optional/>
+    </dependency>
+</dependencies>
+</dependencyManagement>
+<dependencies>
+<dependency>
+    <groupId/>
+    <artifactId/>
+    <version/>
+    <type/>
+    <classifier/>
+    <scope/>
+    <systemPath/>
+    <exclusions>
+        <exclusion>
+            <groupId/>
+            <artifactId/>
+        </exclusion>
+    </exclusions>
+    <optional/>
+</dependency>
+</dependencies>
+
+<repositories>
+<repository>
+    <releases>
+        <enabled/>
+        <updatePolicy/>
+        <checksumPolicy/>
+    </releases>
+    <snapshots>
+        <enabled/>
+        <updatePolicy/>
+        <checksumPolicy/>
+    </snapshots>
+    <id/>
+    <name/>
+    <url/>
+    <layout/>
+</repository>
+</repositories>
+<pluginRepositories>
+<pluginRepository>
+    <releases>
+        <enabled/>
+        <updatePolicy/>
+        <checksumPolicy/>
+    </releases>
+    <snapshots>
+        <enabled/>
+        <updatePolicy/>
+        <checksumPolicy/>
+    </snapshots>
+    <id/>
+    <name/>
+    <url/>
+    <layout/>
+</pluginRepository>
+</pluginRepositories>
+
+<build>
+<sourceDirectory/>
+<scriptSourceDirectory/>
+<testSourceDirectory/>
+<outputDirectory/>
+<testOutputDirectory/>
+<extensions>
+    <extension>
         <groupId/>
         <artifactId/>
         <version/>
-        <reportSets>
-          <reportSet>
-            <id/>
-            <reports/>
-            <inherited/>
-            <configuration/>
-          </reportSet>
-        </reportSets>
-        <inherited/>
-        <configuration/>
-      </plugin>
-    </plugins>
-  </reporting>
- 
-  <profiles>
-    <profile>
-      <id/>
-      <activation>
-        <activeByDefault/>
-        <jdk/>
-        <os>
-          <name/>
-          <family/>
-          <arch/>
-          <version/>
-        </os>
-        <property>
-          <name/>
-          <value/>
-        </property>
-        <file>
-          <missing/>
-          <exists/>
-        </file>
-      </activation>
-      <build>
-        <defaultGoal/>
-        <resources>
-          <resource>
-            <targetPath/>
-            <filtering/>
-            <directory/>
-            <includes/>
-            <excludes/>
-          </resource>
-        </resources>
-        <testResources>
-          <testResource>
-            <targetPath/>
-            <filtering/>
-            <directory/>
-            <includes/>
-            <excludes/>
-          </testResource>
-        </testResources>
+    </extension>
+</extensions>
+<defaultGoal/>
+<resources>
+    <resource>
+        <targetPath/>
+        <filtering/>
         <directory/>
-        <finalName/>
-        <filters/>
-        <pluginManagement>
-          <plugins>
-            <plugin>
-              <groupId/>
-              <artifactId/>
-              <version/>
-              <extensions/>
-              <executions>
-                <execution>
-                  <id/>
-                  <phase/>
-                  <goals/>
-                  <inherited/>
-                  <configuration/>
-                </execution>
-              </executions>
-              <dependencies>
-                <dependency>
-                  <groupId/>
-                  <artifactId/>
-                  <version/>
-                  <type/>
-                  <classifier/>
-                  <scope/>
-                  <systemPath/>
-                  <exclusions>
-                    <exclusion>
-                      <groupId/>
-                      <artifactId/>
-                    </exclusion>
-                  </exclusions>
-                  <optional/>
-                </dependency>
-              </dependencies>
-              <goals/>
-              <inherited/>
-              <configuration/>
-            </plugin>
-          </plugins>
-        </pluginManagement>
-        <plugins>
-          <plugin>
+        <includes/>
+        <excludes/>
+    </resource>
+</resources>
+<testResources>
+    <testResource>
+        <targetPath/>
+        <filtering/>
+        <directory/>
+        <includes/>
+        <excludes/>
+    </testResource>
+</testResources>
+<directory/>
+<finalName/>
+<filters/>
+<pluginManagement>
+    <plugins>
+        <plugin>
             <groupId/>
             <artifactId/>
             <version/>
             <extensions/>
             <executions>
-              <execution>
+                <execution>
+                    <id/>
+                    <phase/>
+                    <goals/>
+                    <inherited/>
+                    <configuration/>
+                </execution>
+            </executions>
+            <dependencies>
+                <dependency>
+                    <groupId/>
+                    <artifactId/>
+                    <version/>
+                    <type/>
+                    <classifier/>
+                    <scope/>
+                    <systemPath/>
+                    <exclusions>
+                        <exclusion>
+                            <groupId/>
+                            <artifactId/>
+                        </exclusion>
+                    </exclusions>
+                    <optional/>
+                </dependency>
+            </dependencies>
+            <goals/>
+            <inherited/>
+            <configuration/>
+        </plugin>
+    </plugins>
+</pluginManagement>
+<plugins>
+    <plugin>
+        <groupId/>
+        <artifactId/>
+        <version/>
+        <extensions/>
+        <executions>
+            <execution>
                 <id/>
                 <phase/>
                 <goals/>
                 <inherited/>
                 <configuration/>
-              </execution>
-            </executions>
-            <dependencies>
-              <dependency>
+            </execution>
+        </executions>
+        <dependencies>
+            <dependency>
                 <groupId/>
                 <artifactId/>
                 <version/>
@@ -507,80 +401,227 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd for Maven 2.0.
                 <scope/>
                 <systemPath/>
                 <exclusions>
-                  <exclusion>
-                    <groupId/>
-                    <artifactId/>
-                  </exclusion>
+                    <exclusion>
+                        <groupId/>
+                        <artifactId/>
+                    </exclusion>
                 </exclusions>
                 <optional/>
-              </dependency>
-            </dependencies>
-            <goals/>
-            <inherited/>
-            <configuration/>
-          </plugin>
+            </dependency>
+        </dependencies>
+        <goals/>
+        <inherited/>
+        <configuration/>
+    </plugin>
+</plugins>
+</build>
+
+<reports/>
+<reporting>
+<excludeDefaults/>
+<outputDirectory/>
+<plugins>
+    <plugin>
+        <groupId/>
+        <artifactId/>
+        <version/>
+        <reportSets>
+            <reportSet>
+                <id/>
+                <reports/>
+                <inherited/>
+                <configuration/>
+            </reportSet>
+        </reportSets>
+        <inherited/>
+        <configuration/>
+    </plugin>
+</plugins>
+</reporting>
+
+<profiles>
+<profile>
+    <id/>
+    <activation>
+        <activeByDefault/>
+        <jdk/>
+        <os>
+            <name/>
+            <family/>
+            <arch/>
+            <version/>
+        </os>
+        <property>
+            <name/>
+            <value/>
+        </property>
+        <file>
+            <missing/>
+            <exists/>
+        </file>
+    </activation>
+    <build>
+        <defaultGoal/>
+        <resources>
+            <resource>
+                <targetPath/>
+                <filtering/>
+                <directory/>
+                <includes/>
+                <excludes/>
+            </resource>
+        </resources>
+        <testResources>
+            <testResource>
+                <targetPath/>
+                <filtering/>
+                <directory/>
+                <includes/>
+                <excludes/>
+            </testResource>
+        </testResources>
+        <directory/>
+        <finalName/>
+        <filters/>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId/>
+                    <artifactId/>
+                    <version/>
+                    <extensions/>
+                    <executions>
+                        <execution>
+                            <id/>
+                            <phase/>
+                            <goals/>
+                            <inherited/>
+                            <configuration/>
+                        </execution>
+                    </executions>
+                    <dependencies>
+                        <dependency>
+                            <groupId/>
+                            <artifactId/>
+                            <version/>
+                            <type/>
+                            <classifier/>
+                            <scope/>
+                            <systemPath/>
+                            <exclusions>
+                                <exclusion>
+                                    <groupId/>
+                                    <artifactId/>
+                                </exclusion>
+                            </exclusions>
+                            <optional/>
+                        </dependency>
+                    </dependencies>
+                    <goals/>
+                    <inherited/>
+                    <configuration/>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId/>
+                <artifactId/>
+                <version/>
+                <extensions/>
+                <executions>
+                    <execution>
+                        <id/>
+                        <phase/>
+                        <goals/>
+                        <inherited/>
+                        <configuration/>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId/>
+                        <artifactId/>
+                        <version/>
+                        <type/>
+                        <classifier/>
+                        <scope/>
+                        <systemPath/>
+                        <exclusions>
+                            <exclusion>
+                                <groupId/>
+                                <artifactId/>
+                            </exclusion>
+                        </exclusions>
+                        <optional/>
+                    </dependency>
+                </dependencies>
+                <goals/>
+                <inherited/>
+                <configuration/>
+            </plugin>
         </plugins>
-      </build>
- 
-      <modules/>
- 
-      <distributionManagement>
+    </build>
+
+    <modules/>
+
+    <distributionManagement>
         <repository>
-          <uniqueVersion/>
-          <releases>
-            <enabled/>
-            <updatePolicy/>
-            <checksumPolicy/>
-          </releases>
-          <snapshots>
-            <enabled/>
-            <updatePolicy/>
-            <checksumPolicy/>
-          </snapshots>
-          <id/>
-          <name/>
-          <url/>
-          <layout/>
+            <uniqueVersion/>
+            <releases>
+                <enabled/>
+                <updatePolicy/>
+                <checksumPolicy/>
+            </releases>
+            <snapshots>
+                <enabled/>
+                <updatePolicy/>
+                <checksumPolicy/>
+            </snapshots>
+            <id/>
+            <name/>
+            <url/>
+            <layout/>
         </repository>
         <snapshotRepository>
-          <uniqueVersion/>
-          <releases>
-            <enabled/>
-            <updatePolicy/>
-            <checksumPolicy/>
-          </releases>
-          <snapshots>
-            <enabled/>
-            <updatePolicy/>
-            <checksumPolicy/>
-          </snapshots>
-          <id/>
-          <name/>
-          <url/>
-          <layout/>
+            <uniqueVersion/>
+            <releases>
+                <enabled/>
+                <updatePolicy/>
+                <checksumPolicy/>
+            </releases>
+            <snapshots>
+                <enabled/>
+                <updatePolicy/>
+                <checksumPolicy/>
+            </snapshots>
+            <id/>
+            <name/>
+            <url/>
+            <layout/>
         </snapshotRepository>
         <site child.site.url.inherit.append.path=.. >
-          <id/>
-          <name/>
-          <url/>
-        </site>
-        <downloadUrl/>
-        <relocation>
-          <groupId/>
-          <artifactId/>
-          <version/>
-          <message/>
-        </relocation>
-        <status/>
-      </distributionManagement>
- 
-      <properties>
-        <key>value</key>
-      </properties>
- 
-      <dependencyManagement>
-        <dependencies>
-          <dependency>
+        <id/>
+        <name/>
+        <url/>
+    </site>
+    <downloadUrl/>
+    <relocation>
+        <groupId/>
+        <artifactId/>
+        <version/>
+        <message/>
+    </relocation>
+    <status/>
+</distributionManagement>
+
+<properties>
+    <key>value</key>
+</properties>
+
+<dependencyManagement>
+    <dependencies>
+        <dependency>
             <groupId/>
             <artifactId/>
             <version/>
@@ -589,94 +630,94 @@ https://maven.apache.org/xsd/maven-4.0.0.xsd for Maven 2.0.
             <scope/>
             <systemPath/>
             <exclusions>
-              <exclusion>
-                <groupId/>
-                <artifactId/>
-              </exclusion>
+                <exclusion>
+                    <groupId/>
+                    <artifactId/>
+                </exclusion>
             </exclusions>
             <optional/>
-          </dependency>
-        </dependencies>
-      </dependencyManagement>
-      <dependencies>
-        <dependency>
-          <groupId/>
-          <artifactId/>
-          <version/>
-          <type/>
-          <classifier/>
-          <scope/>
-          <systemPath/>
-          <exclusions>
-            <exclusion>
-              <groupId/>
-              <artifactId/>
-            </exclusion>
-          </exclusions>
-          <optional/>
         </dependency>
-      </dependencies>
- 
-      <repositories>
-        <repository>
-          <releases>
+    </dependencies>
+</dependencyManagement>
+<dependencies>
+    <dependency>
+        <groupId/>
+        <artifactId/>
+        <version/>
+        <type/>
+        <classifier/>
+        <scope/>
+        <systemPath/>
+        <exclusions>
+            <exclusion>
+                <groupId/>
+                <artifactId/>
+            </exclusion>
+        </exclusions>
+        <optional/>
+    </dependency>
+</dependencies>
+
+<repositories>
+    <repository>
+        <releases>
             <enabled/>
             <updatePolicy/>
             <checksumPolicy/>
-          </releases>
-          <snapshots>
+        </releases>
+        <snapshots>
             <enabled/>
             <updatePolicy/>
             <checksumPolicy/>
-          </snapshots>
-          <id/>
-          <name/>
-          <url/>
-          <layout/>
-        </repository>
-      </repositories>
-      <pluginRepositories>
-        <pluginRepository>
-          <releases>
+        </snapshots>
+        <id/>
+        <name/>
+        <url/>
+        <layout/>
+    </repository>
+</repositories>
+<pluginRepositories>
+    <pluginRepository>
+        <releases>
             <enabled/>
             <updatePolicy/>
             <checksumPolicy/>
-          </releases>
-          <snapshots>
+        </releases>
+        <snapshots>
             <enabled/>
             <updatePolicy/>
             <checksumPolicy/>
-          </snapshots>
-          <id/>
-          <name/>
-          <url/>
-          <layout/>
-        </pluginRepository>
-      </pluginRepositories>
- 
-      <reports/>
-      <reporting>
-        <excludeDefaults/>
-        <outputDirectory/>
-        <plugins>
-          <plugin>
+        </snapshots>
+        <id/>
+        <name/>
+        <url/>
+        <layout/>
+    </pluginRepository>
+</pluginRepositories>
+
+<reports/>
+<reporting>
+    <excludeDefaults/>
+    <outputDirectory/>
+    <plugins>
+        <plugin>
             <groupId/>
             <artifactId/>
             <version/>
             <reportSets>
-              <reportSet>
-                <id/>
-                <reports/>
-                <inherited/>
-                <configuration/>
-              </reportSet>
+                <reportSet>
+                    <id/>
+                    <reports/>
+                    <inherited/>
+                    <configuration/>
+                </reportSet>
             </reportSets>
             <inherited/>
             <configuration/>
-          </plugin>
-        </plugins>
-      </reporting>
-    </profile>
-  </profiles>
-</project>
+        </plugin>
+    </plugins>
+</reporting>
+</profile>
+        </profiles>
+        </project>
 ```
