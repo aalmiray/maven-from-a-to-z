@@ -86,24 +86,24 @@ This repository contains examples and general information about Apache Maven beh
    </details>
 - <details open>
     <summary>Multi-module projects </summary>
-    <ul> <li> <a href="lesson-09/pom.xml">reactor configuration </a> · <a href="lesson-09/README.md"><span class="emoji">&#x1F4D6;</span></a> </li> </ul>
+    <ul> <li> <a href="lesson-09/pom.xml">Reactor configuration </a> · <a href="lesson-09/README.md"><span class="emoji">&#x1F4D6;</span></a> </li> </ul>
   </details> 
 - <details open>
     <summary>Inheritance </summary>
     <ul>
       <li> <a href="lesson-08/pom.xml">Parent POM </a> · <a href="lesson-08/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
       <li> <a href="lesson-14/pom.xml">Revisiting plugins </a> · <a href="lesson-14/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
-      <li> <a href="lesson-12/pom.xml">The pluginManagement section </a> · <a href="lesson-12/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
-      <li> <a href="lesson-08/README.md">combine.self & combine.children </a> </li>
+      <li> <a href="lesson-14/pom.xml">The pluginManagement section </a> · <a href="lesson-14/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
+      <li> combine.self & combine.children </li>
     </ul>
   </details>
 - <details open>
    <summary> Dependency resolution </summary>
    <ul>
      <li> <a href="lesson-16/pom.xml">Scopes </a> · <a href="lesson-16/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
-     <li> <a href="lesson-16/pom.xml">direct vs. transitive </a> · <a href="lesson-16/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
+     <li> <a href="lesson-16/pom.xml">Direct vs. transitive </a> · <a href="lesson-16/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
      <li> <a href="lesson-16/pom.xml">The dependencyManagement section </a> · <a href="lesson-16/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
-     <li> <a href="lesson-16/README.md">exclusions (!!) </a> </li>
+     <li> <a href="lesson-16/README.md">Exclusions (!!) </a> </li>
    </ul>
   </details>
 - <details open>
@@ -113,7 +113,7 @@ This repository contains examples and general information about Apache Maven beh
      <li> <a href="lesson-16/pom.xml">BOMs: library vs. stack </a> </li>
      <li> <a href="lesson-15/pom.xml">The Maven wrapper </a> · <a href="lesson-15/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
      <li> <a href="lesson-17/pom.xml">The enforcer plugin </a> · <a href="lesson-17/README.md"><span class="emoji">&#x1F4D6;</span></a> </li>
-     <li> <a href="lesson-17/pom.xml">The flatten plugin </a> </li>
+     <li> The flatten plugin </li>
    </ul>
   </details>
 
