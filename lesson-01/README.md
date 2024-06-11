@@ -59,6 +59,9 @@ https://maven.apache.org/xsd/maven-v3_0_0.xsd for Maven 1.1.
 
 https://maven.apache.org/xsd/maven-4.0.0.xsd for Maven 2.0.
 
+<details open> 
+<summary>POM</summary>
+
 ```xml showLineNumbers 
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -721,3 +724,4 @@ child.scm.connection.inherit.append.path=.. child.scm.developerConnection.inheri
         </profiles>
         </project>
 ```
+</details>
